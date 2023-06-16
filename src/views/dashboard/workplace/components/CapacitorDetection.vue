@@ -25,7 +25,7 @@
               >嘉德广场</span
             >
             <img
-              src="../../../assets/workplaceView/CapacitorDetectionView/CapacitorDetection-group01.png"
+              src="@/assets/workplaceView/CapacitorDetectionView/CapacitorDetection-group01.png"
             />
           </div>
           <div class="container-realTimeStatus-main-card-content">

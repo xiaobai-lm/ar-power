@@ -34,7 +34,7 @@
         <a-row :gutter="8">
           <a-col :span="16">
             <video>
-              <source src="../../../assets/video/video.mp4" />
+              <source src="@/assets/video/video.mp4" />
             </video>
           </a-col>
           <a-col :span="8">

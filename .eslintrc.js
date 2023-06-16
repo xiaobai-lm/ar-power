@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   root: true,
-  parser: 'vue-eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     // Parser that checks the content of the <script> tag
     parser: '@typescript-eslint/parser',
@@ -67,5 +67,6 @@ module.exports = {
     'no-param-reassign': 0,
     'prefer-regex-literals': 0,
     'import/no-extraneous-dependencies': 0,
+    'import/no-anonymous-default-export': 0
   },
 };

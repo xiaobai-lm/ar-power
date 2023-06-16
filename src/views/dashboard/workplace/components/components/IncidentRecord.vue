@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <a-table :columns="columns" :data="data" :bordered="{ cell: true }" />
+    <a-table :columns="columns" :data="data" :bordered="{ cell: true, wrapper: true }" />
   </div>
 </template>
 
