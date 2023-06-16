@@ -11,17 +11,6 @@ export const REDIRECT_MAIN: RouteRecordRaw = {
     requiresAuth: true,
     hideInMenu: true,
   },
-  children: [
-    {
-      path: '/redirect/:path',
-      name: REDIRECT_ROUTE_NAME,
-      component: () => import('@/views/redirect/index.vue'),
-      meta: {
-        requiresAuth: true,
-        hideInMenu: true,
-      },
-    },
-  ],
 };
 
 export const NOT_FOUND_ROUTE: RouteRecordRaw = {

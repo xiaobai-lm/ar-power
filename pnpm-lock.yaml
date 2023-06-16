@@ -6,6 +6,7 @@ overrides:
   gifsicle: 5.2.0
 
 specifiers:
+  '@antv/x6': ^2.11.1
   '@arco-design/web-vue': ^2.44.7
   '@arco-plugins/vite-vue': ^1.4.5
   '@commitlint/cli': ^17.1.2
@@ -65,8 +66,10 @@ specifiers:
   vue-i18n: ^9.2.2
   vue-router: ^4.0.14
   vue-tsc: ^1.0.14
+  wavesurfer.js: 7.0.0-beta.5
 
 dependencies:
+  '@antv/x6': 2.11.1
   '@arco-design/web-vue': 2.45.0_vue@3.2.47
   '@vueuse/core': 9.13.0_vue@3.2.47
   arco-design-pro-vue: 2.7.2
@@ -83,6 +86,7 @@ dependencies:
   vue-echarts: 6.5.4_echarts@5.4.2+vue@3.2.47
   vue-i18n: 9.2.2_vue@3.2.47
   vue-router: 4.1.6_vue@3.2.47
+  wavesurfer.js: 7.0.0-beta.5
 
 devDependencies:
   '@arco-plugins/vite-vue': 1.4.5
@@ -142,6 +146,25 @@ packages:
   /@antfu/utils/0.7.2:
     resolution: {integrity: sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==}
     dev: true
+
+  /@antv/x6-common/2.0.12:
+    resolution: {integrity: sha512-7PcvHGJ2UhrBEtsLI6MaHw6BCMhy22leCH8vCaMvmF32EEQ/491v6DKVPhcpp0dYZNERpfqvAB1w407Aw+bwLA==}
+    dependencies:
+      lodash-es: 4.17.21
+      utility-types: 3.10.0
+    dev: false
+
+  /@antv/x6-geometry/2.0.5:
+    resolution: {integrity: sha512-MId6riEQkxphBpVeTcL4ZNXL4lScyvDEPLyIafvWMcWNTGK0jgkK7N20XSzqt8ltJb0mGUso5s56mrk8ysHu2A==}
+    dev: false
+
+  /@antv/x6/2.11.1:
+    resolution: {integrity: sha512-DwyuT/zuTEhwsnKwCj67cadwLeEbB5jfdCxrkTnEm6pg0+vT3FinbF71IK7SHoY8d4HOHl+sJt7ikJfr61JqLw==}
+    dependencies:
+      '@antv/x6-common': 2.0.12
+      '@antv/x6-geometry': 2.0.5
+      utility-types: 3.10.0
+    dev: false
 
   /@arco-design/color/0.4.0:
     resolution: {integrity: sha512-s7p9MSwJgHeL8DwcATaXvWT3m2SigKpxx4JA1BGPHL4gfvaQsmQfrLBDpjOJFJuJ2jG2dMt3R3P8Pm9E65q18g==}
@@ -5475,6 +5498,10 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.camelcase/4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
@@ -8403,6 +8430,11 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
+  /utility-types/3.10.0:
+    resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
+    engines: {node: '>= 4'}
+    dev: false
+
   /uuid/3.4.0:
     resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
     deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
@@ -8648,6 +8680,10 @@ packages:
       '@vue/runtime-dom': 3.2.47
       '@vue/server-renderer': 3.2.47_vue@3.2.47
       '@vue/shared': 3.2.47
+
+  /wavesurfer.js/7.0.0-beta.5:
+    resolution: {integrity: sha512-TTvTuLCUcfvs6kw4kpZhNN1TCF9bB+Y9HkUsqw8ZJqooMM6FBL6PdPGX7oym/FoSCW0GdhSGL6FUuccPrznYpg==}
+    dev: false
 
   /webpack-sources/3.2.3:
     resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
