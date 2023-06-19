@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
+  parser: 'vue-eslint-parser',
   parserOptions: {
     // Parser that checks the content of the <script> tag
     parser: '@typescript-eslint/parser',
@@ -44,7 +44,7 @@ module.exports = {
     'vue/max-attributes-per-line': 0,
     // Vue: Add extra rules
     'vue/custom-event-name-casing': [2, 'camelCase'],
-    'vue/no-v-text': 1,
+    'vue/no-v-text': 1, 
     'vue/padding-line-between-blocks': 1,
     'vue/require-direct-export': 1,
     'vue/multi-word-component-names': 0,
@@ -67,6 +67,6 @@ module.exports = {
     'no-param-reassign': 0,
     'prefer-regex-literals': 0,
     'import/no-extraneous-dependencies': 0,
-    'import/no-anonymous-default-export': 0
+    'import/no-anonymous-default-export': 0,
   },
 };
