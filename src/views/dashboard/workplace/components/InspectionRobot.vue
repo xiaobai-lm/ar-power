@@ -55,10 +55,17 @@
                 <span>垂直位置</span>
               </div>
             </div>
-            <div style="background-color: #24323d; position: absolute; bottom: 0">
-              <span></span>
-              <span>空闲</span>
-              <span>上一次巡检时间: -</span>
+            <div
+              style="
+                background-color: #24323d;
+                position: absolute;
+                bottom: 0;
+                display: flex;
+              "
+            >
+              <div></div>
+              <div>空闲</div>
+              <div>上一次巡检时间: -</div>
             </div>
           </div>
         </a-col>

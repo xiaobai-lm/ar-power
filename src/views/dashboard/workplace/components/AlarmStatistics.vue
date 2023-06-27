@@ -12,11 +12,7 @@
       >
         <template #columns>
           <a-table-column title="站点名称" data-index="name"> </a-table-column>
-          <a-table-column
-            title="总数"
-            data-index="salary"
-            :sortable="sortable as string[]"
-          >
+          <a-table-column title="总数" data-index="salary" :sortable="sortable">
             <template #cell="{ record }">
               <div
                 style="

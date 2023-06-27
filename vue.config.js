@@ -1,11 +1,11 @@
 module.exports = {
   // 关闭eslint语法验证
-  lintOnSave: false,
+  lintOnSave: true,
   devServer: {
     // 关闭eslint语法验证
     overlay: {
-      warning: false,
-      errors: false,
+      warning: true,
+      errors: true,
     },
   },
 }

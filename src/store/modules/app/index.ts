@@ -29,13 +29,14 @@ const useAppStore = defineStore('app', {
     },
 
     // Change theme color
-    toggleTheme(dark: boolean) {
-      if (dark) {
-        this.theme = 'dark';
-        document.body.setAttribute('arco-theme', 'dark');
-      } else {
+    toggleTheme(light: boolean) {
+      if (light) {
         this.theme = 'light';
         document.body.removeAttribute('arco-theme');
+      } else {
+        this.theme = 'dark';
+        document.body.setAttribute('arco-theme', 'dark');
+        
       } 
     },
     toggleDevice(device: string) {

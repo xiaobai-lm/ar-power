@@ -34,7 +34,7 @@
         </div>
         <div v-else-if="items === '1'" style="height: 100%">
           <!-- 监控画面 -->
-          <MonitoringScreen />
+          <NewSiteKanban />
         </div>
         <div v-else-if="items === '2'">
           <!-- 设备监控 -->
@@ -141,6 +141,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import SiteKanban from "./components/SiteKanban.vue";
+import NewSiteKanban from "./components/NewSiteKanban.vue";
 import MonitoringScreen from "./components/MonitoringScreen.vue";
 import EquipmentMonitoring from "./components/EquipmentMonitoring.vue";
 import TransformerDetection from "./components/TransformerDetection.vue";
