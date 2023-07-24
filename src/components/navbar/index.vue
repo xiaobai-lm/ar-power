@@ -13,9 +13,10 @@
     </div>
     <div class="center-side">
       <FirstMenu />
+      333
     </div>
     <ul class="right-side">
-      <!-- <li>
+      <li>
         <a-tooltip :content="$t('settings.search')">
           <a-button class="nav-btn" type="outline" :shape="'circle'">
             <template #icon>
@@ -23,7 +24,7 @@
             </template>
           </a-button>
         </a-tooltip>
-      </li> -->
+      </li>
       <!-- <li>
         <a-tooltip :content="$t('settings.language')">
           <a-button

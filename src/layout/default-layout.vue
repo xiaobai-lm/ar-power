@@ -11,7 +11,7 @@
         </a-layout>
       </a-layout>
     </a-layout>
-    <!-- <a-layout-footer style="background-color: red"> arco </a-layout-footer> -->
+    <a-layout-footer style="background-color: red"> arco </a-layout-footer>
   </a-layout>
 </template>
 
