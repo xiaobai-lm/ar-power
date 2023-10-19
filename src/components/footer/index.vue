@@ -11,6 +11,7 @@
     justify-content: center;
     height: 40px;
     color: var(--color-text-2);
+    background-color: var(--color-black);
     text-align: center;
   }
 </style>

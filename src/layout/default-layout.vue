@@ -1,6 +1,8 @@
 <template>
   <a-layout class="layout" :class="{ mobile: appStore.hideMenu }">
-    <a-layout-header class="layout-navbar"><NavBar /></a-layout-header>
+    <a-layout-header class="layout-navbar">
+      <NavBar />
+    </a-layout-header>
     <a-layout>
       <a-layout>
         <a-layout class="layout-content">
@@ -11,7 +13,12 @@
         </a-layout>
       </a-layout>
     </a-layout>
-    <a-layout-footer style="background-color: red"> arco </a-layout-footer>
+    <a-layout-footer>
+      <Footer />
+      <!-- <div style="height: 50px; line-height: 50px; text-align: center; color: white">
+        Arco Design
+      </div> -->
+    </a-layout-footer>
   </a-layout>
 </template>
 
@@ -145,6 +152,7 @@ onMounted(() => {
   z-index: 99;
   height: 100%;
   transition: all 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+
   &::after {
     position: absolute;
     top: 0;
@@ -165,6 +173,7 @@ onMounted(() => {
   height: 100%;
   overflow: auto;
   overflow-x: hidden;
+
   :deep(.arco-menu) {
     ::-webkit-scrollbar {
       width: 12px;
@@ -190,5 +199,4 @@ onMounted(() => {
   background-color: var(--color-fill-2);
   transition: padding 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
   margin-top: 60px;
-}
-</style>
+}</style>

@@ -46,7 +46,7 @@
           <a-checkbox
             checked="rememberPassword"
             :model-value="loginConfig.rememberPassword"
-            @change="setRememberPassword as any"
+            @change?="setRememberPassword"
           >
             {{ $t("login.form.rememberPassword") }}
           </a-checkbox>
@@ -104,7 +104,7 @@ const handleSubmit = async ({
       await userStore.login(values as LoginData);
       const { redirect, ...othersQuery } = router.currentRoute.value.query;
       router.push({
-        name: (redirect as string) || "Workplace",
+        name: (redirect as string) || "dashboards",
         query: {
           ...othersQuery,
         },

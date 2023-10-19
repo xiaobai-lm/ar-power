@@ -13,7 +13,6 @@
     </div>
     <div class="center-side">
       <FirstMenu />
-      333
     </div>
     <ul class="right-side">
       <li>

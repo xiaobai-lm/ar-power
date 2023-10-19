@@ -13,9 +13,9 @@ const DASHBOARD: AppRouteRecordRaw = {
   },
   children: [
     {
-      path: 'workplace',
-      name: 'Workplace',
-      component: () => import('@/views/dashboard/workplace/index.vue'),
+      path: '/dashboards',
+      name: 'dashboards',
+      component: () => import('@/views/dashboard/index.vue'),
       meta: {
         locale: 'menu.dashboard.workplace',
         requiresAuth: true,
@@ -23,36 +23,25 @@ const DASHBOARD: AppRouteRecordRaw = {
       },
     },
     {
-      path: 'about',
-      name: 'About',
-      component: () => import('@/views/dashboard/about/index.vue'),
+      path: '/about',
+      name: 'about',
+      component: () => import('@/views/about/index.vue'),
       meta: {
         locale: 'menu.dashboard.workplace',
         requiresAuth: true,
         roles: ['*'],
       },
     },
-    {
-      path: 'cloud-service',
-      name: 'Cloud Service',
-      component: () => import('@/views/dashboard/cloud-service/index.vue'),
-      meta: {
-        locale: 'menu.dashboard.workplace',
-        requiresAuth: true,
-        roles: ['*'],
-      },
-    },
-    {
-      path: 'cooperation',
-      name: 'Cooperation',
-      component: () => import('@/views/dashboard/cooperation/index.vue'),
-      meta: {
-        locale: 'menu.dashboard.workplace',
-        requiresAuth: true,
-        roles: ['*'],
-      },
-    },
+    // {
+    //   path: 'about',
+    //   name: 'About',
+    //   component: () => import('@/views/about/index.vue'),
+    //   meta: {
+    //     locale: 'menu.dashboard.workplace',
+    //     requiresAuth: true,
+    //     roles: ['*'],
+    //   },
+    // },
   ],
 };
-
 export default DASHBOARD;

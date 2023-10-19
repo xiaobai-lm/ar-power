@@ -57,17 +57,18 @@ const List = ref([
   },
 ]);
 
-const handleClick = (item) => {
+const handleClick = (item: { id: string; }) => {
   // router.push({ path: "/about" });
   if (item.id === "0") {
-    router.push({ path: "/dashboard/workplace" });
+    router.push({ path: "/dashboards" });
   } else if (item.id === "1") {
-    router.push({ path: "about" });
-  } else if (item.id === "2") {
-    router.push({ path: "/dashboard/cloud-service" });
-  } else {
-    router.push({ path: "/dashboard/cooperation" });
+    router.push({ path: "/about" });
   }
+  // } else if (item.id === "2") {
+  //   router.push({ path: "/dashboard/cloud-service" });
+  // } else {
+  //   router.push({ path: "/dashboard/cooperation" });
+  // }
 };
 </script>
 
