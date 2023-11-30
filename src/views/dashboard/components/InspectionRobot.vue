@@ -80,13 +80,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+  import { ref } from 'vue';
 </script>
 
 <style lang="less" scoped>
-* {
-  color: white;
-}
-.container {
-}
+  * {
+    color: white;
+  }
+  .container {
+  }
 </style>

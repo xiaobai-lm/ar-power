@@ -39,7 +39,7 @@
           </a-col>
           <a-col :span="8">
             <a-collapse :default-active-key="[1]" accordion>
-              <a-collapse-item header="云台控制" key="1">
+              <a-collapse-item key="1" header="云台控制">
                 <template #expand-icon="{ active }">
                   <icon-double-down v-if="active" />
                   <icon-double-right v-else />
@@ -53,17 +53,40 @@
                       position: relative;
                     "
                   >
-                    <span style="position: absolute; left: 32%; top: 0; cursor: pointer"
+                    <span
+                      style="
+                        position: absolute;
+                        left: 32%;
+                        top: 0;
+                        cursor: pointer;
+                      "
                       ><icon-caret-up :style="{ fontSize: '54px' }"
                     /></span>
-                    <span style="position: absolute; left: 0; top: 30%; cursor: pointer"
+                    <span
+                      style="
+                        position: absolute;
+                        left: 0;
+                        top: 30%;
+                        cursor: pointer;
+                      "
                       ><icon-caret-left :style="{ fontSize: '54px' }"
                     /></span>
-                    <span style="position: absolute; right: 0; top: 30%; cursor: pointer"
+                    <span
+                      style="
+                        position: absolute;
+                        right: 0;
+                        top: 30%;
+                        cursor: pointer;
+                      "
                       ><icon-caret-right :style="{ fontSize: '54px' }"
                     /></span>
                     <span
-                      style="position: absolute; left: 32%; bottom: 0; cursor: pointer"
+                      style="
+                        position: absolute;
+                        left: 32%;
+                        bottom: 0;
+                        cursor: pointer;
+                      "
                       ><icon-caret-down :style="{ fontSize: '54px' }"
                     /></span>
                   </div>
@@ -102,7 +125,7 @@
                   </div>
                 </div>
               </a-collapse-item>
-              <a-collapse-item header="语音控制" key="2">
+              <a-collapse-item key="2" header="语音控制">
                 <template #extra>
                   <a-popover
                     title="Chrome 高版本中非https无法打开录音功能解决方法"
@@ -126,7 +149,7 @@
                 </template>
                 <div></div>
               </a-collapse-item>
-              <a-collapse-item header="回放" key="3">
+              <a-collapse-item key="3" header="回放">
                 <template #expand-icon="{ active }">
                   <icon-double-down v-if="active" />
                   <icon-double-right v-else />
@@ -150,9 +173,9 @@
           <a-card>
             <a-row :gutter="10">
               <a-col
-                :span="3"
                 v-for="(footerList, footerIndex) in footerData"
                 :key="footerIndex"
+                :span="3"
               >
                 <img :src="footerList.img" style="width: 100%; height: 100%" />
                 <div>
@@ -167,17 +190,17 @@
         </div>
       </a-card>
       <!-- 四分屏 -->
-      <a-row :gutter="10" v-show="isShowTwo">
-        <a-col :span="12" v-for="(item, index) in splitScreen" :key="index">
+      <a-row v-show="isShowTwo" :gutter="10">
+        <a-col v-for="(item, index) in splitScreen" :key="index" :span="12">
           <video style="width: 100%" controls>
             <source :src="item.video" />
           </video>
         </a-col>
       </a-row>
       <!-- 九分屏 -->
-      <a-row :gutter="10" v-show="isShowThree"
+      <a-row v-show="isShowThree" :gutter="10"
         ><a-row>
-          <a-col :span="8" v-for="(item, index) in splitScreen" :key="index">
+          <a-col v-for="(item, index) in splitScreen" :key="index" :span="8">
             <video style="width: 100%" controls>
               <source :src="item.video" />
             </video>
@@ -189,131 +212,131 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import videos from "@/assets/video/video.mp4";
-import imgs from "@/assets/monitor.jpg";
+  import { ref } from 'vue';
+  import videos from '@/assets/video/video.mp4';
+  import imgs from '@/assets/monitor.jpg';
 
-const date: string = Date.now();
+  const date: string = Date.now();
 
-const isShow: boolean = ref(true);
-const isShowTwo: boolean = ref(false);
-const isShowThree: boolean = ref(false);
-const handleChange = (key) => {
-  console.log(key);
-  if (key === "1") {
-    isShow.value = true;
-    isShowTwo.value = false;
-    isShowThree.value = false;
-  } else if (key === "2") {
-    isShow.value = false;
-    isShowTwo.value = true;
-    isShowThree.value = false;
-  } else {
-    isShow.value = false;
-    isShowTwo.value = false;
-    isShowThree.value = true;
-  }
-};
+  const isShow: boolean = ref(true);
+  const isShowTwo: boolean = ref(false);
+  const isShowThree: boolean = ref(false);
+  const handleChange = (key) => {
+    console.log(key);
+    if (key === '1') {
+      isShow.value = true;
+      isShowTwo.value = false;
+      isShowThree.value = false;
+    } else if (key === '2') {
+      isShow.value = false;
+      isShowTwo.value = true;
+      isShowThree.value = false;
+    } else {
+      isShow.value = false;
+      isShowTwo.value = false;
+      isShowThree.value = true;
+    }
+  };
 
-const columns = [
-  {
-    title: "起止时间",
-    dataIndex: "name",
-    sortable: {
-      sortDirections: ["ascend", "descend"],
+  const columns = [
+    {
+      title: '起止时间',
+      dataIndex: 'name',
+      sortable: {
+        sortDirections: ['ascend', 'descend'],
+      },
     },
-  },
-  {
-    title: "文件大小",
-    dataIndex: "salary",
-    sortable: {
-      sortDirections: ["ascend", "descend"],
+    {
+      title: '文件大小',
+      dataIndex: 'salary',
+      sortable: {
+        sortDirections: ['ascend', 'descend'],
+      },
     },
-  },
-  {
-    title: "操作",
-    dataIndex: "address",
-  },
-];
+    {
+      title: '操作',
+      dataIndex: 'address',
+    },
+  ];
 
-const splitScreen = [
-  {
-    video: videos,
-  },
-  {
-    video: videos,
-  },
-  {
-    video: videos,
-  },
-  {
-    video: videos,
-  },
-  {
-    video: videos,
-  },
-  {
-    video: videos,
-  },
-];
+  const splitScreen = [
+    {
+      video: videos,
+    },
+    {
+      video: videos,
+    },
+    {
+      video: videos,
+    },
+    {
+      video: videos,
+    },
+    {
+      video: videos,
+    },
+    {
+      video: videos,
+    },
+  ];
 
-const footerData = [
-  {
-    title: "机柜1",
-    onlineState: "在线",
-    img: imgs,
-  },
-  {
-    title: "机器人摄像头",
-    onlineState: "在线",
-    img: imgs,
-  },
-  {
-    title: "lyf配电室01",
-    onlineState: "在线",
-    img: imgs,
-  },
-  {
-    title: "lyf配电室02",
-    onlineState: "在线",
-    img: imgs,
-  },
-  {
-    title: "可见光",
-    onlineState: "离线",
-    img: imgs,
-  },
-  {
-    title: "红外",
-    onlineState: "离线",
-    img: imgs,
-  },
-];
+  const footerData = [
+    {
+      title: '机柜1',
+      onlineState: '在线',
+      img: imgs,
+    },
+    {
+      title: '机器人摄像头',
+      onlineState: '在线',
+      img: imgs,
+    },
+    {
+      title: 'lyf配电室01',
+      onlineState: '在线',
+      img: imgs,
+    },
+    {
+      title: 'lyf配电室02',
+      onlineState: '在线',
+      img: imgs,
+    },
+    {
+      title: '可见光',
+      onlineState: '离线',
+      img: imgs,
+    },
+    {
+      title: '红外',
+      onlineState: '离线',
+      img: imgs,
+    },
+  ];
 </script>
 
 <style lang="less" scoped>
-.container {
-  &-body {
-    padding: 10px;
+  .container {
+    &-body {
+      padding: 10px;
+    }
   }
-}
 
-video {
-  width: 100%;
-  height: 100%;
-}
+  video {
+    width: 100%;
+    height: 100%;
+  }
 
-// card
-.arco-card-size-medium .arco-card-body {
-  padding: 10px !important ;
-}
+  // card
+  .arco-card-size-medium .arco-card-body {
+    padding: 10px !important ;
+  }
 
-//
-.arco-collapse-item-content {
-  padding: 0 10px !important ;
-}
-// table
-.arco-table .arco-table-element {
-  margin-top: 10px;
-}
+  //
+  .arco-collapse-item-content {
+    padding: 0 10px !important ;
+  }
+  // table
+  .arco-table .arco-table-element {
+    margin-top: 10px;
+  }
 </style>

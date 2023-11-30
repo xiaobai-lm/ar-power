@@ -29,21 +29,21 @@
 <script lang="ts" setup></script>
 
 <style lang="less" scoped>
-.container {
-  height: 100%;
-  &-empty {
-    margin-top: 20%;
-    &-click {
+  .container {
+    height: 100%;
+    &-empty {
+      margin-top: 20%;
+      &-click {
+      }
     }
   }
-}
-a {
-  padding-top: 10px;
-  color: #6c7fff;
-  text-decoration: none;
-  background-color: transparent;
-  outline: 0;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+  a {
+    padding-top: 10px;
+    color: #6c7fff;
+    text-decoration: none;
+    background-color: transparent;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
 </style>

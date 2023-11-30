@@ -5,52 +5,56 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineProps, onMounted, nextTick,toRefs } from "vue";
-import * as echarts from "echarts";
+  import { ref, defineProps, onMounted, nextTick, toRefs } from 'vue';
+  import * as echarts from 'echarts';
 
-const props = defineProps({
-  item: Array,
-  data: Array,
-  // item2: Array,
-  // data2: Array,
-});
-
-const { item, data } = toRefs(props);
-// const { item, data, item2, data2 } = toRefs(props);
-
-onMounted(async () => {
-  await nextTick(() => {
-    const myChart: any = echarts.init(document.getElementById("myChart"), null, {
-      height: 420,
-    });
-    const options = {
-      xAxis: {
-        type: "category",
-        data: data.value,
-      },
-      yAxis: {
-        type: "value",
-      },
-      series: item.value,
-    };
-
-    myChart.setOption(options);
-
-    // const myChart2: any = echarts.init(document.getElementById("myChart2"));
-
-    // const options2 = {
-    //   xAxis: {
-    //     type: "category",
-    //     data: data2.value,
-    //   },
-    //   yAxis: {
-    //     type: "value",
-    //   },
-    //   series: item2.value,
-    // };
-    // myChart2.setOption(options2);
+  const props = defineProps({
+    item: Array,
+    data: Array,
+    // item2: Array,
+    // data2: Array,
   });
-});
+
+  const { item, data } = toRefs(props);
+  // const { item, data, item2, data2 } = toRefs(props);
+
+  onMounted(async () => {
+    await nextTick(() => {
+      const myChart: any = echarts.init(
+        document.getElementById('myChart'),
+        null,
+        {
+          height: 420,
+        }
+      );
+      const options = {
+        xAxis: {
+          type: 'category',
+          data: data.value,
+        },
+        yAxis: {
+          type: 'value',
+        },
+        series: item.value,
+      };
+
+      myChart.setOption(options);
+
+      // const myChart2: any = echarts.init(document.getElementById("myChart2"));
+
+      // const options2 = {
+      //   xAxis: {
+      //     type: "category",
+      //     data: data2.value,
+      //   },
+      //   yAxis: {
+      //     type: "value",
+      //   },
+      //   series: item2.value,
+      // };
+      // myChart2.setOption(options2);
+    });
+  });
 </script>
 
 <style></style>

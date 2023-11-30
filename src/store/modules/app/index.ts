@@ -36,8 +36,7 @@ const useAppStore = defineStore('app', {
       } else {
         this.theme = 'dark';
         document.body.setAttribute('arco-theme', 'dark');
-        
-      } 
+      }
     },
     toggleDevice(device: string) {
       this.device = device;

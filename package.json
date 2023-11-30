@@ -12,7 +12,13 @@
     "preview": "npm run build && vite preview --host",
     "type:check": "vue-tsc --noEmit --skipLibCheck",
     "lint-staged": "npx lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cz": "czg"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
@@ -25,7 +31,7 @@
       "eslint --fix"
     ],
     "*.{less,css}": [
-      "stylelint --fix",
+      "stylelint --fix --custom-syntax postcss",
       "prettier --write"
     ]
   },
@@ -37,15 +43,19 @@
     "axios": "^0.24.0",
     "dayjs": "^1.11.5",
     "echarts": "^5.4.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "lodash": "^4.17.21",
     "mitt": "^3.0.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.23",
+    "postcss": "8.2.15",
     "query-string": "^8.0.3",
     "sortablejs": "^1.15.0",
     "vue": "^3.2.40",
     "vue-echarts": "^6.2.3",
     "vue-i18n": "^9.2.2",
+    "vue-pdf": "^4.3.0",
     "vue-router": "^4.0.14",
     "wavesurfer.js": "7.0.0-beta.5"
   },
@@ -64,6 +74,7 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "consola": "^2.15.3",
     "cross-env": "^7.0.3",
+    "cz-git": "^1.7.1",
     "eslint": "^8.25.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -79,7 +90,7 @@
     "prettier": "^2.7.1",
     "rollup": "^3.9.1",
     "rollup-plugin-visualizer": "^5.8.2",
-    "stylelint": "^14.13.0",
+    "stylelint": "^15.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended-vue": "^1.4.0",

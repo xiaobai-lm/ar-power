@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import ON from "@/assets/workplaceView/CapacitorDetectionView/CapacitorDetection-on.png"
-import OFF from "@/assets/workplaceView/CapacitorDetectionView/CapacitorDetection-off.png"
+import ON from '@/assets/workplaceView/CapacitorDetectionView/CapacitorDetection-on.png';
+import OFF from '@/assets/workplaceView/CapacitorDetectionView/CapacitorDetection-off.png';
 
 const useUserDataList = defineStore('data', {
   state: () => {
@@ -8,11 +8,11 @@ const useUserDataList = defineStore('data', {
       title: '',
       PrimaryName: '嘉德广场',
       SecondaryName: '电容柜',
-      MA:"mA",
-      A:"A",
-      V:"V",
-      KW:"kW",
-      KWH:"kWh",
+      MA: 'mA',
+      A: 'A',
+      V: 'V',
+      KW: 'kW',
+      KWH: 'kWh',
       highPressure: [
         {
           highPressureList: [
@@ -236,8 +236,8 @@ const useUserDataList = defineStore('data', {
 
       capacitor: [
         {
-          img:ON,
-          value:"30",
+          img: ON,
+          value: '30',
           PrimaryName: '嘉德广场',
           SecondaryName: '电容柜',
           capacitorName: '1',
@@ -251,8 +251,8 @@ const useUserDataList = defineStore('data', {
           oneMonthsSwitch: '0',
         },
         {
-          img:ON,
-          value:"30",
+          img: ON,
+          value: '30',
           capacitorName: '2',
           currentState: 'ON',
           currentTemperature: '30°C',
@@ -264,8 +264,8 @@ const useUserDataList = defineStore('data', {
           oneMonthsSwitch: '0',
         },
         {
-          img:ON,
-          value:"30",
+          img: ON,
+          value: '30',
           capacitorName: '3',
           currentState: 'ON',
           currentTemperature: '30°C',
@@ -277,8 +277,8 @@ const useUserDataList = defineStore('data', {
           oneMonthsSwitch: '0',
         },
         {
-          img:OFF,
-          value:"30",
+          img: OFF,
+          value: '30',
           capacitorName: '4',
           currentState: 'OFF',
           currentTemperature: '30°C',
@@ -290,8 +290,8 @@ const useUserDataList = defineStore('data', {
           oneMonthsSwitch: '0',
         },
         {
-          img:OFF,
-          value:"30",
+          img: OFF,
+          value: '30',
           capacitorName: '5',
           currentState: 'OFF',
           currentTemperature: '30°C',
@@ -303,8 +303,8 @@ const useUserDataList = defineStore('data', {
           oneMonthsSwitch: '0',
         },
         {
-          img:ON,
-          value:"30",
+          img: ON,
+          value: '30',
           capacitorName: '6',
           currentState: 'ON',
           currentTemperature: '30°C',
@@ -316,8 +316,8 @@ const useUserDataList = defineStore('data', {
           oneMonthsSwitch: '0',
         },
         {
-          img:OFF,
-          value:"30",
+          img: OFF,
+          value: '30',
           capacitorName: '7',
           currentState: 'OFF',
           currentTemperature: '30°C',
@@ -329,8 +329,8 @@ const useUserDataList = defineStore('data', {
           oneMonthsSwitch: '0',
         },
         {
-          img:ON,
-          value:"30",
+          img: ON,
+          value: '30',
           capacitorName: '8',
           currentState: 'ON',
           currentTemperature: '30°C',
