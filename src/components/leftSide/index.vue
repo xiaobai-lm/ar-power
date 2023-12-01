@@ -11,6 +11,13 @@
           @select="tabsHandleClick"
         />
       </a-layout-sider>
+      <a-layout-content class="container-layout-content">
+        <a-breadcrumb>
+          <a-breadcrumb-item v-for="tab in treeData">{{
+            tab
+          }}</a-breadcrumb-item>
+        </a-breadcrumb>
+      </a-layout-content>
     </a-layout>
   </div>
 </template>

@@ -86,7 +86,7 @@
     },
   ];
 
-  const handleClick = (item) => {
+  const handleClick = (item: any) => {
     if (item.id === '0_0') {
       router.push({ path: '/dashboard/workplace' });
     } else if (item.id === '0_1') {

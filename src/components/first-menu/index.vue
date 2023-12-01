@@ -67,14 +67,21 @@
       router.push({ path: '/dashboards' });
     } else if (item.id === '1') {
       router.push({ path: '/about' });
-    } else if (item.id === '5') {
+    } else if (item.id === '2') {
+      router.push({ path: '/dashboard/cloud-service' });
+    } else if (item.id === '3') {
+      router.push({ path: '/cooperation' });
+    }  else if (item.id === '5') {
       router.push({ path: '/dataAnalysis' });
+    }else if (item.id === '4') {
+      router.push({ path: '/smart' });
+    } else if (item.id === '6') {
+      router.push({ path: '/carbon' });
+    } else if (item.id === '8') {
+      router.push({ path: '/device' });
+    } else {
+      router.push({ path: '' });
     }
-    // } else if (item.id === "2") {
-    //   router.push({ path: "/dashboard/cloud-service" });
-    // } else {
-    //   router.push({ path: "/dashboard/cooperation" });
-    // }
   };
 </script>
 
