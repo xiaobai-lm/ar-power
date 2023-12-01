@@ -70,8 +70,8 @@
           </div>
         </a-col>
         <a-col :span="18">
-          <a-col :span="18"> </a-col>
-          <a-col :span="6"> </a-col>
+          <a-col :span="18"></a-col>
+          <a-col :span="6"></a-col>
           <a-col :span="24"></a-col>
         </a-col>
       </a-row>
@@ -79,14 +79,13 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from "vue";
-</script>
+<script lang="ts" setup></script>
 
 <style lang="less" scoped>
-* {
-  color: white;
-}
-.container {
-}
+  * {
+    color: white;
+  }
+
+  .container {
+  }
 </style>

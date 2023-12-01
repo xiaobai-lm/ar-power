@@ -41,12 +41,12 @@
           </div>
           <a-modal
             v-model:visible="visible"
-            @ok="handleOk"
-            hide-cancel
             :footer="false"
             :width="1200"
+            hide-cancel
+            @ok="handleOk"
           >
-            <template #title> 嘉德广场/电容柜/{{}} </template>
+            <template #title> 嘉德广场/电容柜/{{}}</template>
             <a-card>
               <span>日期选择 </span>
               <a-range-picker v-model="rangeValue" style="width: 360px" />
@@ -61,16 +61,18 @@
       </div>
       <div class="container-OperationStatistics">
         <div class="container-OperationStatistics-header">
-          <span class="container-OperationStatistics-header-span">运行统计</span>
+          <span class="container-OperationStatistics-header-span"
+            >运行统计</span
+          >
           <a-card style="margin-top: 10px">
             <div>
               <span> 设备选择 </span>
               <a-select
-                :style="{ width: '320px' }"
                 v-model="value"
-                placeholder="Please select ..."
-                default-value="Beijing"
+                :style="{ width: '320px' }"
                 allow-clear
+                default-value="Beijing"
+                placeholder="Please select ..."
               >
                 <a-option>Beijing</a-option>
               </a-select>
@@ -89,12 +91,12 @@
     <div>
       <a-table
         v-show="isShowTwo"
+        :bordered="{ cell: true }"
         :columns="columns"
         :data="dataList.capacitor"
-        column-resizable
-        :bordered="{ cell: true }"
-        :span-method="dataSpanMethod"
         :pagination="false"
+        :span-method="dataSpanMethod"
+        column-resizable
       ></a-table>
     </div>
   </div>
@@ -104,247 +106,269 @@
         } 
     } -->
 </template>
+
 <script lang="ts" setup>
-import { ref, onMounted, reactive } from "vue";
-import * as echarts from "echarts";
-import { useUserDataList } from "@/store";
-import ON from "@/assets/workplaceView/CapacitorDetectionView/CapacitorDetection-on.png";
-import OFF from "@/assets/workplaceView/CapacitorDetectionView/CapacitorDetection-off.png";
+  import { onMounted, reactive, ref } from 'vue';
+  import * as echarts from 'echarts';
+  import { useUserDataList } from '@/store';
 
-const isShow = ref(true);
-const isShowTwo = ref(false);
-const examine = ref("列表查看");
-const handleClick = () => {
-  examine.value = "图表查看";
-  isShow.value = !isShow.value;
-  isShowTwo.value = !isShowTwo.value;
-};
-const visible = ref(false);
+  const isShow = ref(true);
+  const isShowTwo = ref(false);
+  const examine = ref('列表查看');
+  const handleClick = () => {
+    examine.value = '图表查看';
+    isShow.value = !isShow.value;
+    isShowTwo.value = !isShowTwo.value;
+  };
+  const visible = ref(false);
 
-const handleClickList = () => {
-  visible.value = true;
-};
-const dataList = useUserDataList();
+  const handleClickList = () => {
+    visible.value = true;
+  };
+  const dataList = useUserDataList();
 
-const dataSpanMethod = ({ record, column }) => {
-  if (record.name === "Alisa Ross" && column.dataIndex === "salary") {
-    return {
-      rowspan: 2,
-    };
-  }
-  return record;
-};
+  const dataSpanMethod = ({ record, column }) => {
+    if (record.name === 'Alisa Ross' && column.dataIndex === 'salary') {
+      return {
+        rowspan: 2,
+      };
+    }
+    return record;
+  };
 
-const rangeValue = ref([Date.now(), Date.now()]);
+  const rangeValue = ref([Date.now(), Date.now()]);
 
-onMounted(() => {
-  setTimeout(() => {
-    const myChart = echarts.init(document.getElementById("eCharts"), null, {
-      height: 400,
-    });
-    const myChartData = {
-      xAxis: {
-        type: "category",
-        axisLine: {
-          lineStyle: {
-            type: "solid",
+  onMounted(() => {
+    setTimeout(() => {
+      const myChart = echarts.init(document.getElementById('eCharts'), null, {
+        height: 400,
+      });
+      const myChartData = {
+        xAxis: {
+          type: 'category',
+          axisLine: {
+            lineStyle: {
+              type: 'solid',
+            },
+          },
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', '?'],
+        },
+        yAxis: {
+          type: 'value',
+        },
+        series: [
+          {
+            data: [150, 230, 224, 218, 135, 147, 260, 253],
+            type: 'line',
+          },
+        ],
+      };
+
+      const TimeRanking = echarts.init(
+        document.getElementById('TimeRanking'),
+        null,
+        {
+          height: 210,
+        }
+      );
+      const TimeRankingData = {
+        tooltip: {
+          trigger: 'axis',
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true,
+        },
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', '?'],
+          axisTick: {
+            alignWithLabel: true,
           },
         },
-        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "?"],
-      },
-      yAxis: {
-        type: "value",
-      },
-      series: [
-        {
-          data: [150, 230, 224, 218, 135, 147, 260, 253],
-          type: "line",
+        yAxis: {
+          type: 'value',
         },
-      ],
-    };
-
-    const TimeRanking = echarts.init(document.getElementById("TimeRanking"), null, {
-      height: 210,
-    });
-    const TimeRankingData = {
-      tooltip: {
-        trigger: "axis",
-      },
-      grid: {
-        left: "3%",
-        right: "4%",
-        bottom: "3%",
-        containLabel: true,
-      },
-      xAxis: {
-        type: "category",
-        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "?"],
-        axisTick: {
-          alignWithLabel: true,
-        },
-      },
-      yAxis: {
-        type: "value",
-      },
-      series: [
-        {
-          data: [120, 200, 150, 80, 70, 110, 130, 433],
-          type: "bar",
-          itemStyle: {
-            width: 16,
-            color: "#a90000",
+        series: [
+          {
+            data: [120, 200, 150, 80, 70, 110, 130, 433],
+            type: 'bar',
+            itemStyle: {
+              width: 16,
+              color: '#a90000',
+            },
           },
-        },
-      ],
-    };
-    const NumberRanking = echarts.init(document.getElementById("NumberRanking"), null, {
-      height: 200,
-    });
-    const NumberRankingData = {
-      grid: {
-        left: "3%",
-        right: "4%",
-        bottom: "3%",
-        containLabel: true,
-      },
-      xAxis: {
-        type: "category",
-        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-      },
-      yAxis: {
-        type: "value",
-      },
-      series: [
+        ],
+      };
+      const NumberRanking = echarts.init(
+        document.getElementById('NumberRanking'),
+        null,
         {
-          data: [120, 200, 150, 80, 70, 110, 130],
-          type: "bar",
+          height: 200,
+        }
+      );
+      const NumberRankingData = {
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true,
         },
-      ],
-    };
-    myChart.setOption(myChartData);
-    TimeRanking.setOption(TimeRankingData);
-    NumberRanking.setOption(NumberRankingData);
-  }, 10);
-});
-const columns = reactive([
-  {
-    title: "分组",
-    dataIndex: "PrimaryName",
-  },
-  {
-    title: "柜体",
-    dataIndex: "SecondaryName",
-  },
-  {
-    title: "电容器",
-    dataIndex: "capacitorName",
-  },
-  {
-    title: "当前状态",
-    dataIndex: "currentState",
-  },
-  {
-    title: "当前温度",
-    dataIndex: "currentTemperature",
-  },
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        },
+        yAxis: {
+          type: 'value',
+        },
+        series: [
+          {
+            data: [120, 200, 150, 80, 70, 110, 130],
+            type: 'bar',
+          },
+        ],
+      };
+      myChart.setOption(myChartData);
+      TimeRanking.setOption(TimeRankingData);
+      NumberRanking.setOption(NumberRankingData);
+    }, 10);
+  });
+  const columns = reactive([
+    {
+      title: '分组',
+      dataIndex: 'PrimaryName',
+    },
+    {
+      title: '柜体',
+      dataIndex: 'SecondaryName',
+    },
+    {
+      title: '电容器',
+      dataIndex: 'capacitorName',
+    },
+    {
+      title: '当前状态',
+      dataIndex: 'currentState',
+    },
+    {
+      title: '当前温度',
+      dataIndex: 'currentTemperature',
+    },
 
-  {
-    title: "近1年投入比",
-    dataIndex: "oneYearInvestment",
-  },
-  {
-    title: "近1年投切次数",
-    dataIndex: "oneYearSwitch",
-  },
-  {
-    title: "近90天投入比",
-    dataIndex: "threeMonthsInvestment",
-  },
-  {
-    title: "近90天投切次数",
-    dataIndex: "threeMonthsSwitch",
-  },
-  {
-    title: "近30天投入比",
-    dataIndex: "oneMonthsInvestment",
-  },
-  {
-    title: "近30天投入比",
-    dataIndex: "oneMonthsSwitch",
-  },
-]);
+    {
+      title: '近1年投入比',
+      dataIndex: 'oneYearInvestment',
+    },
+    {
+      title: '近1年投切次数',
+      dataIndex: 'oneYearSwitch',
+    },
+    {
+      title: '近90天投入比',
+      dataIndex: 'threeMonthsInvestment',
+    },
+    {
+      title: '近90天投切次数',
+      dataIndex: 'threeMonthsSwitch',
+    },
+    {
+      title: '近30天投入比',
+      dataIndex: 'oneMonthsInvestment',
+    },
+    {
+      title: '近30天投入比',
+      dataIndex: 'oneMonthsSwitch',
+    },
+  ]);
 </script>
 
 <style lang="less" scoped>
-* {
-  color: white;
-}
-.container {
-  padding: 10px;
-  &-realTimeStatus {
-    &-left {
-      border-left: 4px solid #6c7fff;
-      padding-left: 7px;
-      font-size: 16px;
-    }
-    &-right {
-      float: right;
-    }
-    &-main {
-      margin-top: 20px;
-      &-card {
-        padding: 6px;
-        background-color: #1b2834;
-        border-radius: 8px;
-        &-header {
-          height: 20px;
-          line-height: 20px;
-          font-size: 14px;
-          img {
-            vertical-align: middle;
-          }
-        }
-        &-content {
-          display: flex;
+  * {
+    color: white;
+  }
+
+  .container {
+    padding: 10px;
+
+    &-realTimeStatus {
+      &-left {
+        border-left: 4px solid #6c7fff;
+        padding-left: 7px;
+        font-size: 16px;
+      }
+
+      &-right {
+        float: right;
+      }
+
+      &-main {
+        margin-top: 20px;
+
+        &-card {
+          padding: 6px;
+          background-color: #1b2834;
+          border-radius: 8px;
+
           &-header {
-            width: 70px;
-            height: 100px;
-            text-align: center;
-            align-items: center;
-            span {
-              color: #1dfffc;
-              font-size: 12px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+
+            img {
+              vertical-align: middle;
+            }
+          }
+
+          &-content {
+            display: flex;
+
+            &-header {
+              width: 70px;
+              height: 100px;
+              text-align: center;
+              align-items: center;
+
+              span {
+                color: #1dfffc;
+                font-size: 12px;
+              }
             }
           }
         }
       }
     }
-  }
-  &-OperationStatistics {
-    margin: 20px 0;
-    &-header {
-      &-span {
-        border-left: 4px solid #6c7fff;
-        padding-left: 7px;
-        font-size: 16px;
+
+    &-OperationStatistics {
+      margin: 20px 0;
+
+      &-header {
+        &-span {
+          border-left: 4px solid #6c7fff;
+          padding-left: 7px;
+          font-size: 16px;
+        }
       }
     }
   }
-}
-h4 {
-  margin: 6px 0;
-  padding: 0;
-}
-.container-realTimeStatus-main-card-content-header {
-  height: 100px;
-}
-.arco-btn-primary,
-.arco-btn-primary[type="button"],
-.arco-btn-primary[type="submit"] {
-  display: none;
-}
 
-.arco-modal {
-  width: 1200px;
-}
+  h4 {
+    margin: 6px 0;
+    padding: 0;
+  }
+
+  .container-realTimeStatus-main-card-content-header {
+    height: 100px;
+  }
+
+  .arco-btn-primary,
+  .arco-btn-primary[type='button'],
+  .arco-btn-primary[type='submit'] {
+    display: none;
+  }
+
+  .arco-modal {
+    width: 1200px;
+  }
 </style>

@@ -1,0 +1,36 @@
+.arco-tag-checked {
+    padding: 20px 15px !important;
+    color: #6c7fff;
+    background-color: #6c7fff !important;
+}
+
+.arco-tag-checked:hover {
+    padding: 20px !important;
+    color: black !important;
+    background-color: #6c7fff;
+}
+
+.arco-tag {
+    width: 100%;
+    padding: 20px 15px !important;
+    background-color: #33404c;
+    margin-left: 10px;
+}
+
+.arco-tag:hover {
+    width: 100%;
+    padding: 20px 15px !important;
+    color: #6c7fff;
+}
+
+.arco-radio .arco-radio-disabled {
+    color: black !important;
+}
+
+.arco-tag .arco-tag-size-medium .arco-tag-checkable {
+    color: black !important;
+}
+
+.arco-tag > .arco-tag-size-medium > .arco-tag-checkable {
+    color: black !important;
+}

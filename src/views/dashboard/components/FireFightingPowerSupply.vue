@@ -6,9 +6,9 @@
       </template>
       <p>无消防电源测点变量</p>
       <a-popover
-        trigger="click"
         class="container-empty-click"
         content-style="margin-bottom: 10px;"
+        trigger="click"
       >
         <a>查看配置说明</a>
         <template #content>
@@ -29,21 +29,24 @@
 <script lang="ts" setup></script>
 
 <style lang="less" scoped>
-.container {
-  height: 100%;
-  &-empty {
-    margin-top: 20%;
-    &-click {
+  .container {
+    height: 100%;
+
+    &-empty {
+      margin-top: 20%;
+
+      &-click {
+      }
     }
   }
-}
-a {
-  padding-top: 10px;
-  color: #6c7fff;
-  text-decoration: none;
-  background-color: transparent;
-  outline: 0;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+
+  a {
+    padding-top: 10px;
+    color: #6c7fff;
+    text-decoration: none;
+    background-color: transparent;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
 </style>

@@ -6,7 +6,10 @@
           alt="logo"
           src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image"
         />
-        <a-typography-title :style="{ margin: 0, fontSize: '18px' }" :heading="5">
+        <a-typography-title
+          :heading="5"
+          :style="{ margin: 0, fontSize: '18px' }"
+        >
           Arco Pro
         </a-typography-title>
       </a-space>
@@ -17,7 +20,7 @@
     <ul class="right-side">
       <li>
         <a-tooltip :content="$t('settings.search')">
-          <a-button class="nav-btn" type="outline" :shape="'circle'">
+          <a-button :shape="'circle'" class="nav-btn" type="outline">
             <template #icon>
               <icon-search />
             </template>
@@ -75,9 +78,9 @@
           <div class="message-box-trigger">
             <a-badge :count="9" dot>
               <a-button
+                :shape="'circle'"
                 class="nav-btn"
                 type="outline"
-                :shape="'circle'"
                 @click="setPopoverVisible"
               >
                 <icon-notification />
@@ -86,10 +89,10 @@
           </div>
         </a-tooltip>
         <a-popover
-          trigger="click"
           :arrow-style="{ display: 'none' }"
           :content-style="{ padding: 0, minWidth: '400px' }"
           content-class="message-popover"
+          trigger="click"
         >
           <div ref="refBtn" class="ref-btn"></div>
           <template #content>
@@ -129,15 +132,18 @@
       </li> -->
       <li>
         <a-dropdown trigger="click">
-          <a-avatar :size="32" :style="{ marginRight: '8px', cursor: 'pointer' }">
-            <img alt="avatar" :src="avatar" />
+          <a-avatar
+            :size="32"
+            :style="{ marginRight: '8px', cursor: 'pointer' }"
+          >
+            <img :src="avatar" alt="avatar" />
           </a-avatar>
           <template #content>
             <a-doption>
               <a-space @click="switchRoles">
                 <icon-tag />
                 <span>
-                  {{ $t("messageBox.switchRoles") }}
+                  {{ $t('messageBox.switchRoles') }}
                 </span>
               </a-space>
             </a-doption>
@@ -145,7 +151,7 @@
               <a-space @click="$router.push({ name: 'Info' })">
                 <icon-user />
                 <span>
-                  {{ $t("messageBox.userCenter") }}
+                  {{ $t('messageBox.userCenter') }}
                 </span>
               </a-space>
             </a-doption>
@@ -153,7 +159,7 @@
               <a-space @click="$router.push({ name: 'Setting' })">
                 <icon-settings />
                 <span>
-                  {{ $t("messageBox.userSettings") }}
+                  {{ $t('messageBox.userSettings') }}
                 </span>
               </a-space>
             </a-doption>
@@ -161,7 +167,7 @@
               <a-space @click="handleLogout">
                 <icon-export />
                 <span>
-                  {{ $t("messageBox.logout") }}
+                  {{ $t('messageBox.logout') }}
                 </span>
               </a-space>
             </a-doption>
@@ -173,132 +179,135 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, inject } from "vue";
-import { Message } from "@arco-design/web-vue";
-import { useDark, useToggle, useFullscreen } from "@vueuse/core";
-import { useAppStore, useUserStore } from "@/store";
-import { LOCALE_OPTIONS } from "@/locale";
-import useLocale from "@/hooks/locale";
-import useUser from "@/hooks/user";
-// import Menu from "@/components/menu/index.vue";
-import MessageBox from "../message-box/index.vue";
-import FirstMenu from "../first-menu/index.vue";
+  import { computed, ref } from 'vue';
+  import { Message } from '@arco-design/web-vue';
+  import { useDark, useToggle } from '@vueuse/core';
+  import { useAppStore, useUserStore } from '@/store';
+  import useUser from '@/hooks/user';
+  // import Menu from "@/components/menu/index.vue";
+  import MessageBox from '../message-box/index.vue';
+  import FirstMenu from '../first-menu/index.vue';
 
-const appStore = useAppStore();
-const userStore = useUserStore();
-const { logout } = useUser();
-// const { changeLocale, currentLocale } = useLocale();
-// const { isFullscreen, toggle: toggleFullScreen } = useFullscreen();
-// const locales = [...LOCALE_OPTIONS];
-const avatar = computed(() => {
-  return userStore.avatar;
-});
-// const theme = computed(() => {
-//   return appStore.theme;
-// });
-// const topMenu = computed(() => appStore.topMenu && appStore.menu);
-const isDark = useDark({
-  selector: "body",
-  attribute: "arco-theme",
-  valueDark: "dark",
-  valueLight: "light",
-  storageKey: "arco-theme",
-  onChanged(dark: boolean) {
-    // overridden default behavior
-    appStore.toggleTheme(dark);
-  },
-});
-const toggleTheme = useToggle(isDark);
-// const handleToggleTheme = () => {
-//   toggleTheme();
-// };
-// const setVisible = () => {
-//   appStore.updateSettings({ globalSettings: true });
-// };
-const refBtn = ref();
-const triggerBtn = ref();
-const setPopoverVisible = () => {
-  const event = new MouseEvent("click", {
-    view: window,
-    bubbles: true,
-    cancelable: true,
+  const appStore = useAppStore();
+  const userStore = useUserStore();
+  const { logout } = useUser();
+  // const { changeLocale, currentLocale } = useLocale();
+  // const { isFullscreen, toggle: toggleFullScreen } = useFullscreen();
+  // const locales = [...LOCALE_OPTIONS];
+  const avatar = computed(() => {
+    return userStore.avatar;
   });
-  refBtn.value.dispatchEvent(event);
-};
-const handleLogout = () => {
-  logout();
-};
-// const setDropDownVisible = () => {
-//   const event = new MouseEvent("click", {
-//     view: window,
-//     bubbles: true,
-//     cancelable: true,
-//   });
-//   triggerBtn.value.dispatchEvent(event);
-// };
-const switchRoles = async () => {
-  const res = await userStore.switchRoles();
-  Message.success(res as string);
-};
-// const toggleDrawerMenu = inject("toggleDrawerMenu") as () => void;
+  // const theme = computed(() => {
+  //   return appStore.theme;
+  // });
+  // const topMenu = computed(() => appStore.topMenu && appStore.menu);
+  const isDark = useDark({
+    selector: 'body',
+    attribute: 'arco-theme',
+    valueDark: 'dark',
+    valueLight: 'light',
+    storageKey: 'arco-theme',
+    onChanged(dark: boolean) {
+      // overridden default behavior
+      appStore.toggleTheme(dark);
+    },
+  });
+  const toggleTheme = useToggle(isDark);
+  // const handleToggleTheme = () => {
+  //   toggleTheme();
+  // };
+  // const setVisible = () => {
+  //   appStore.updateSettings({ globalSettings: true });
+  // };
+  const refBtn = ref();
+  const triggerBtn = ref();
+  const setPopoverVisible = () => {
+    const event = new MouseEvent('click', {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+    });
+    refBtn.value.dispatchEvent(event);
+  };
+  const handleLogout = () => {
+    logout();
+  };
+  // const setDropDownVisible = () => {
+  //   const event = new MouseEvent("click", {
+  //     view: window,
+  //     bubbles: true,
+  //     cancelable: true,
+  //   });
+  //   triggerBtn.value.dispatchEvent(event);
+  // };
+  const switchRoles = async () => {
+    const res = await userStore.switchRoles();
+    Message.success(res as string);
+  };
+  // const toggleDrawerMenu = inject("toggleDrawerMenu") as () => void;
 </script>
 
-<style scoped lang="less">
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  background-color: var(--color-bg-2);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.left-side {
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.center-side {
-  flex: 1;
-  margin: 0 auto;
-}
-
-.right-side {
-  display: flex;
-  list-style: none;
-  :deep(.locale-select) {
-    border-radius: 20px;
+<style lang="less" scoped>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    background-color: var(--color-bg-2);
+    border-bottom: 1px solid var(--color-border);
   }
-  li {
+
+  .left-side {
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 20px;
   }
 
-  a {
-    color: var(--color-text-1);
-    text-decoration: none;
+  .center-side {
+    flex: 1;
+    margin: 0 auto;
   }
-  .nav-btn {
-    border-color: rgb(var(--gray-2));
-    color: rgb(var(--gray-8));
-    font-size: 16px;
+
+  .right-side {
+    display: flex;
+    list-style: none;
+
+    :deep(.locale-select) {
+      border-radius: 20px;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    a {
+      color: var(--color-text-1);
+      text-decoration: none;
+    }
+
+    .nav-btn {
+      border-color: rgb(var(--gray-2));
+      color: rgb(var(--gray-8));
+      font-size: 16px;
+    }
+
+    .trigger-btn,
+    .ref-btn {
+      position: absolute;
+      bottom: 14px;
+    }
+
+    .trigger-btn {
+      margin-left: 14px;
+    }
   }
-  .trigger-btn,
-  .ref-btn {
-    position: absolute;
-    bottom: 14px;
-  }
-  .trigger-btn {
-    margin-left: 14px;
-  }
-}
 </style>
 
 <style lang="less">
-.message-popover {
-  .arco-popover-content {
-    margin-top: 0;
+  .message-popover {
+    .arco-popover-content {
+      margin-top: 0;
+    }
   }
-}
 </style>
