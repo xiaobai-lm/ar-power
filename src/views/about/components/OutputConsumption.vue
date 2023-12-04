@@ -30,7 +30,7 @@
         <a-col :span="4">
           <a-card style="height: 180px">
             <template #title>
-              <a-sapce>当年总单耗</a-sapce>
+              <a-space>当年总单耗</a-space>
               <a-space>千克标准煤/万元</a-space>
             </template>
             <div>
@@ -40,7 +40,7 @@
 
           <a-card style="height: 180px; margin-top: 10px">
             <template #title>
-              <a-sapce>上一年同期总单耗</a-sapce>
+              <a-space>上一年同期总单耗</a-space>
               <a-space>千克标准煤/万元</a-space>
             </template>
             <div>
@@ -72,7 +72,7 @@
         <a-col :span="4">
           <a-card style="height: 180px">
             <template #title>
-              <a-sapce>当年总单耗</a-sapce>
+              <a-space>当年总单耗</a-space>
               <a-space>千克标准煤/万元</a-space>
             </template>
             <div>
@@ -82,7 +82,7 @@
 
           <a-card style="height: 180px; margin-top: 10px">
             <template #title>
-              <a-sapce>上一年同期总单耗</a-sapce>
+              <a-space>上一年同期总单耗</a-space>
               <a-space>千克标准煤/万元</a-space>
             </template>
             <div>

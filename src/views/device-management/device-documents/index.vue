@@ -19,9 +19,20 @@
               ><div><a-input-search /></div
               ><div
                 ><div>#</div
-                ><div v-for="i in x" :key="i" class="list-content"
-                  ><div style="float: left">380电缆头</div
-                  ><div style="float: right">0</div></div
+                ><a-button
+                  v-for="(i, index) in x"
+                  :key="index"
+                  type="text"
+                  class="list-content"
+                  :style="{
+                    background: index === selectedIndex ? '#2cb0be' : 'black',
+                    color: index === selectedIndex ? 'white' : ' #a2a0a0',
+                  }"
+                  @click="leftClick(index)"
+                  ><span style="position: absolute; left: 10%">380电缆头</span
+                  ><span style="position: absolute; right: 10%"
+                    >0</span
+                  ></a-button
                 ></div
               ></div
             ></a-tab-pane
@@ -52,7 +63,7 @@
           <a-tab-pane key="7" title="数据报表"> <DataReport /> </a-tab-pane>
           <a-tab-pane key="8" title="电子资料"> <electronicData /> </a-tab-pane>
         </a-tabs>
-        <div v-else-if="3"></div>
+        <div v-else-if="3"><div class="list-right-content"> s</div></div>
       </a-layout-content>
     </a-layout>
   </div>
@@ -73,7 +84,7 @@
 
   const isShow = ref(2);
   const x = [];
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 1; i <= 100; i += 1) {
     x.push(i);
   }
   const tabsHandleClick = (key: string[]) => {
@@ -124,6 +135,12 @@
       ],
     },
   ];
+  const selectedIndex = ref(0);
+  // 点击修改按钮的背景颜色
+  const leftClick = (i: any) => {
+    selectedIndex.value = i;
+    //   点击其他按钮以后的背景颜色恢复原样
+  };
 </script>
 
 <style lang="less" scoped>
@@ -153,6 +170,9 @@
         border-radius: 6px;
         padding: 0 15px;
         margin-top: 5px;
+        color: #a2a0a0;
+      }
+      .list-right-content {
       }
     }
   }

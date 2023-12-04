@@ -13,7 +13,7 @@
       </a-layout-sider>
       <a-layout-content class="container-layout-content">
         <a-breadcrumb>
-          <a-breadcrumb-item v-for="tab in treeData">{{
+          <a-breadcrumb-item v-for="tab in treeData" :key="tab">{{
             tab
           }}</a-breadcrumb-item>
         </a-breadcrumb>

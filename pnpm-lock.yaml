@@ -19,6 +19,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.40.0
   '@vitejs/plugin-vue': ^3.1.2
   '@vitejs/plugin-vue-jsx': ^2.0.1
+  '@vue-office/pdf': ^1.5.5
   '@vue/babel-plugin-jsx': ^1.1.1
   '@vueuse/core': ^9.3.0
   arco-design-pro-vue: ^2.7.2
@@ -77,6 +78,7 @@ specifiers:
 dependencies:
   '@antv/x6': 2.16.1
   '@arco-design/web-vue': 2.53.3_vue@3.3.9
+  '@vue-office/pdf': registry.npmmirror.com/@vue-office/pdf/1.5.5_vue@3.3.9
   '@vueuse/core': 9.13.0_vue@3.3.9
   arco-design-pro-vue: 2.7.2
   axios: 0.24.0
@@ -7946,6 +7948,23 @@ packages:
     dependencies:
       '@types/node': registry.npmmirror.com/@types/node/20.10.1
     dev: true
+
+  registry.npmmirror.com/@vue-office/pdf/1.5.5_vue@3.3.9:
+    resolution: {integrity: sha512-WjybKkhKl0zKtmtxTC7Z0ws6cZCjWtZ96KowZ1JgNClUrXz8Y3oT69c3kJzVL4RnHnz5ApMUaa4gTrhb4VreQw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue-office/pdf/-/pdf-1.5.5.tgz}
+    id: registry.npmmirror.com/@vue-office/pdf/1.5.5
+    name: '@vue-office/pdf'
+    version: 1.5.5
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.13.11
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.3.9_typescript@4.9.5
+    dev: false
 
   registry.npmmirror.com/arch/2.2.0:
     resolution: {integrity: sha512-Of/R0wqp83cgHozfIYLbBMnej79U/SVGOOyuB3VVFv1NRM/PSFMK12x9KVtiYzJqmnU5WR2qp0Z5rHb7sWGnFQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/arch/-/arch-2.2.0.tgz}

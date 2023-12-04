@@ -71,13 +71,11 @@
       router.push({ path: '/dashboard/cloud-service' });
     } else if (item.id === '3') {
       router.push({ path: '/cooperation' });
-    }  else if (item.id === '5') {
-      router.push({ path: '/dataAnalysis' });
-    }else if (item.id === '4') {
-      router.push({ path: '/smart' });
-    } else if (item.id === '6') {
+    } else if (item.id === '4') {
       router.push({ path: '/carbon' });
-    } else if (item.id === '8') {
+    } else if (item.id === '5') {
+      router.push({ path: '/dataAnalysis' });
+    } else if (item.id === '6') {
       router.push({ path: '/device' });
     } else {
       router.push({ path: '' });

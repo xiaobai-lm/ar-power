@@ -36,6 +36,7 @@
   "dependencies": {
     "@antv/x6": "^2.11.1",
     "@arco-design/web-vue": "^2.44.7",
+    "@vue-office/pdf": "^1.5.5",
     "@vueuse/core": "^9.3.0",
     "arco-design-pro-vue": "^2.7.2",
     "axios": "^0.24.0",
