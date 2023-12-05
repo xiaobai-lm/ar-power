@@ -36,10 +36,10 @@
           <deviceDocuments />
         </div>
         <div v-else-if="items === '1'">
-          <flowDiagram />
+          <switchLifeMonitor />
         </div>
         <div v-else-if="items === '2'">
-          <report />
+          <userDevice />
         </div>
         <div v-else-if="items === '3'">
           <analysisReport />
@@ -61,6 +61,8 @@
 <script lang="ts" setup>
   import { ref, Ref } from 'vue';
   import deviceDocuments from './device-documents/index.vue';
+  import switchLifeMonitor from './switch-life-monitor/index.vue';
+  import userDevice from './user-device/index.vue';
 
   const items: Ref<string> = ref('0');
 
