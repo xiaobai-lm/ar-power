@@ -1,10 +1,9 @@
 <template>
   <div class="container">
     <a-layout class="layout-demo">
-      <a-layout-sider collapsible breakpoint="xl" :collapsed="collapse">
+      <a-layout-sider collapsible breakpoint="xl">
         <a-menu
           :style="{ width: '200px', borderRadius: '4px' }"
-          :collapsed="collapsed"
           :default-open-keys="['0']"
           :default-selected-keys="['0_0']"
           @menu-item-click="handleClick"

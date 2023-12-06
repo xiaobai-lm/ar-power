@@ -1,10 +1,9 @@
 <template>
   <div class="container">
     <a-layout class="layout-demo">
-      <a-layout-sider collapsible breakpoint="xl" :collapsed="collapse">
+      <a-layout-sider collapsible breakpoint="xl">
         <a-menu
           :style="{ width: '200px', borderRadius: '4px' }"
-          :collapsed="collapsed"
           :default-open-keys="['0']"
           :default-selected-keys="['0_0']"
           @menu-item-click="handleClick"
@@ -42,7 +41,7 @@
           <userDevice />
         </div>
         <div v-else-if="items === '3'">
-          <analysisReport />
+          <deviceAttribute />
         </div>
         <div v-else-if="items === '4'">
           <emissionAccounting />
@@ -63,18 +62,17 @@
   import deviceDocuments from './device-documents/index.vue';
   import switchLifeMonitor from './switch-life-monitor/index.vue';
   import userDevice from './user-device/index.vue';
+  import deviceAttribute from './device-attribute/index.vue';
 
   const items: Ref<string> = ref('0');
 
   const handleClick = (key: any) => {
-    console.log(key);
     switch (key) {
       case '0_0':
         items.value = '0';
         break;
       case '1_0':
         items.value = '1';
-        console.log('1');
         break;
       case '2_0':
         items.value = '2';

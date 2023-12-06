@@ -27,7 +27,7 @@
           </a-button>
         </a-tooltip>
       </li>
-      <!-- <li>
+      <li>
         <a-tooltip :content="$t('settings.language')">
           <a-button
             class="nav-btn"
@@ -43,7 +43,11 @@
         <a-dropdown trigger="click" @select="changeLocale">
           <div ref="triggerBtn" class="trigger-btn"></div>
           <template #content>
-            <a-doption v-for="item in locales" :key="item.value" :value="item.value">
+            <a-doption
+              v-for="item in locales"
+              :key="item.value"
+              :value="item.value"
+            >
               <template #icon>
                 <icon-check v-show="item.value === currentLocale" />
               </template>
@@ -72,7 +76,7 @@
             </template>
           </a-button>
         </a-tooltip>
-      </li> -->
+      </li>
       <li>
         <a-tooltip :content="$t('settings.navbar.alerts')">
           <div class="message-box-trigger">
@@ -181,25 +185,28 @@
 <script lang="ts" setup>
   import { computed, ref } from 'vue';
   import { Message } from '@arco-design/web-vue';
-  import { useDark, useToggle } from '@vueuse/core';
+  import { useDark, useFullscreen, useToggle } from '@vueuse/core';
   import { useAppStore, useUserStore } from '@/store';
   import useUser from '@/hooks/user';
   // import Menu from "@/components/menu/index.vue";
+  import useLocale from '@/hooks/locale';
+  import { LOCALE_OPTIONS } from '@/locale';
+
   import MessageBox from '../message-box/index.vue';
   import FirstMenu from '../first-menu/index.vue';
 
   const appStore = useAppStore();
   const userStore = useUserStore();
   const { logout } = useUser();
-  // const { changeLocale, currentLocale } = useLocale();
-  // const { isFullscreen, toggle: toggleFullScreen } = useFullscreen();
-  // const locales = [...LOCALE_OPTIONS];
+  const { changeLocale, currentLocale } = useLocale();
+  const { isFullscreen, toggle: toggleFullScreen } = useFullscreen();
+  const locales = [...LOCALE_OPTIONS];
   const avatar = computed(() => {
     return userStore.avatar;
   });
-  // const theme = computed(() => {
-  //   return appStore.theme;
-  // });
+  const theme = computed(() => {
+    return appStore.theme;
+  });
   // const topMenu = computed(() => appStore.topMenu && appStore.menu);
   const isDark = useDark({
     selector: 'body',
@@ -213,12 +220,12 @@
     },
   });
   const toggleTheme = useToggle(isDark);
-  // const handleToggleTheme = () => {
-  //   toggleTheme();
-  // };
-  // const setVisible = () => {
-  //   appStore.updateSettings({ globalSettings: true });
-  // };
+  const handleToggleTheme = () => {
+    toggleTheme();
+  };
+  const setVisible = () => {
+    appStore.updateSettings({ globalSettings: true });
+  };
   const refBtn = ref();
   const triggerBtn = ref();
   const setPopoverVisible = () => {
@@ -232,14 +239,14 @@
   const handleLogout = () => {
     logout();
   };
-  // const setDropDownVisible = () => {
-  //   const event = new MouseEvent("click", {
-  //     view: window,
-  //     bubbles: true,
-  //     cancelable: true,
-  //   });
-  //   triggerBtn.value.dispatchEvent(event);
-  // };
+  const setDropDownVisible = () => {
+    const event = new MouseEvent('click', {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+    });
+    triggerBtn.value.dispatchEvent(event);
+  };
   const switchRoles = async () => {
     const res = await userStore.switchRoles();
     Message.success(res as string);
