@@ -50,7 +50,7 @@
     <!--    >-->
 
     <iframe
-      src="https://view.xdocin.com/demo/view/view.pdf"
+      src="https://sci-hub.se/10.1098/rspa.2017.0334"
       height="700px;"
       width="100%"
       style="position: absolute; right: 0; top: 0"

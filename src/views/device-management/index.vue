@@ -47,7 +47,7 @@
           <emissionAccounting />
         </div>
         <div v-else-if="items === '5'">
-          <accountingBoundary />
+          <productLibrary />
         </div>
         <div v-else-if="items === '6'">
           <emissionFactor />
@@ -63,6 +63,7 @@
   import switchLifeMonitor from './switch-life-monitor/index.vue';
   import userDevice from './user-device/index.vue';
   import deviceAttribute from './device-attribute/index.vue';
+  import productLibrary from './product-library/index.vue';
 
   const items: Ref<string> = ref('0');
 
